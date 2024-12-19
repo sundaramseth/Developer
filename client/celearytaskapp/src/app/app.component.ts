@@ -15,6 +15,8 @@ export class AppComponent {
 
   title = 'celearytaskapp';
 
+  message = ''
+
   task = new FormGroup({
     task: new FormControl(''),
   });
@@ -25,6 +27,8 @@ export class AppComponent {
     this.http.post('http://127.0.0.1:8000/task/tasks/', taskData)
       .subscribe(res => {
         console.log({ res });
+        setInterval( this.message = "Hello", 3000);
+       
       }, error => {
         console.error("Error", error);
       });
