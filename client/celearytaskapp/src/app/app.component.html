@@ -1,0 +1,11 @@
+<h1>Create your celeary task</h1>
+
+<form [formGroup]="task">
+
+<label for="createtask">Add Task: </label>
+<input id="createtask" type="text" formControlName="createtask">
+<button type="button"  (click)="onSubmit()">Add</button>
+
+</form>
+
+<router-outlet></router-outlet>
