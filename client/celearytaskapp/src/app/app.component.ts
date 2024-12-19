@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -19,14 +19,18 @@ export class AppComponent {
     createtask: new FormControl(''),
   });
 
-
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    this.http.post('http://127.0.0.1:8000/task/tasks/',this.task.value).subscribe(res => { // * not callback
-      console.log({res}); 
-    }, error => {
-      console.log("Error", error);
-    });
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+  
+    this.http.post('http://127.0.0.1:8000/task/tasks/', this.task.value, httpOptions)
+      .subscribe(res => {
+        console.log({ res });
+      }, error => {
+        console.error("Error", error);
+      });
   }
-
 }

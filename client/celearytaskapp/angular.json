@@ -64,9 +64,7 @@
               "browserTarget": "celearytaskapp:build:production"
             },
             "development": {
-              "browserTarget": "celearytaskapp:build:development",
-              "host": "127.0.0.1",
-              "port": 8000
+              "browserTarget": "celearytaskapp:build:development"
             }
           },
           "defaultConfiguration": "development"
