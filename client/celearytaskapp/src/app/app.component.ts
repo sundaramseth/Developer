@@ -16,17 +16,13 @@ export class AppComponent {
   title = 'celearytaskapp';
 
   task = new FormGroup({
-    createtask: new FormControl(''),
+    task: new FormControl(''),
   });
 
   onSubmit() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      })
-    };
+    const taskData = { task: this.task.value.task }; // Adjust based on your form
   
-    this.http.post('http://127.0.0.1:8000/task/tasks/', this.task.value, httpOptions)
+    this.http.post('http://127.0.0.1:8000/task/tasks/', taskData)
       .subscribe(res => {
         console.log({ res });
       }, error => {
